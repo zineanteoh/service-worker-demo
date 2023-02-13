@@ -13,6 +13,9 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
 	const url = new URL(event.request.url);
 	console.log("Fetching request!");
+	console.log("Request origin: " + url.origin);
+	console.log("Location origin: " + location.origin);
+	console.log("Request Path: " + url.pathname);
 
 	// serve the second image from the cache if the request is
 	// same-origin and the path is '/imgs/A.png'
