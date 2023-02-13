@@ -18,8 +18,8 @@ self.addEventListener("fetch", (event) => {
 	console.log("Request Path: " + url.pathname);
 
 	// serve the second image from the cache if the request is
-	// same-origin and the path is '/imgs/A.png'
-	if (url.origin == location.origin && url.pathname === "./imgs/A.png") {
+	// same-origin and the path includes '/imgs/A.png'
+	if (url.origin == location.origin && url.pathname.includes("imgs/A.png")) {
 		console.log("Hit! Serving from cache: " + url.pathname);
 		event.respondWith(caches.match("./imgs/B.png"));
 	}
